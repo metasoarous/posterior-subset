@@ -16,8 +16,8 @@ This tool - `posterior-subset` - solves this problem by
 1. Counting the number of samples in your file
 2. Computing from this the fraction of samples to keep given the desired number of output samples
 3. Doing a second pass through the file where, for each sequence:
-    a. If adding the sequence to the output file makes the ratio of sequences included closer to the goal ratio we include it
-    b. If not, we leave it out
+    1. If adding the sequence to the output file makes the ratio of sequences included closer to the goal ratio we include it
+    2. If not, we leave it out
 
 This gives us an evenly distributed selection of samples from the larger collection.
 
