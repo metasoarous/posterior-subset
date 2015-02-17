@@ -1,0 +1,3 @@
+# Introduction to posterior-subset
+
+TODO: write [great documentation](http://jacobian.org/writing/what-to-write/)
