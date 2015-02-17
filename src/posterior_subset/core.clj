@@ -1,4 +1,3 @@
-#!/usr/bin/env lein-exec
 (ns posterior-subset.core
   (:require [clojure.tools.cli :refer [parse-opts]]
             [clojure.string :as string]
