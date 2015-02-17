@@ -73,7 +73,10 @@
             (.write wtr (str current-line \newline))
             (recur (rest lines-left))))))
     (let [infile-line-count (count-lines infile file-type)]
-      (line-writer wtr infile infile-line-count out-count))))
+      (line-writer wtr infile infile-line-count out-count))
+    (when (= "treefile" file-type)
+      ; For safe measure if someone wants to use the nexus for anything other than PACT
+      (.write wtr "\n;\n"))))
 
 
 ;; CLI management stuff
