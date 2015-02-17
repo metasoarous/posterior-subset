@@ -1,12 +1,32 @@
 # posterior-subset
 
-A simple Clojure/JVM CLI for subsetting BEAST posterior files (logfiles and treefiles).
+A simple Clojure/JVM CLI for subsetting large BEAST posterior files (logfiles and treefiles).
+
+## Overview
+
+When running BEAST in `-resume` mode, your posterior files can get quite large.
+This can clog up analysis programs like Tracer and PACT.
+To deal with this, you might want to take every N samples or so from these output files and use these subsets in downstream analyses.
+However, this could be a touch messy depending on the exact fraction of samples you want to keep.
+Imagine you have 18,457 samples and want 5,000 of them.
+What do you do?
+You likely don't want to think about how to evenly pick the samples you want, you just want to know that you're getting an even distribution when you specify how many samples you want to keep.
+This tool - `posterior-subset` - solves this problem by
+
+1. Counting the number of samples in your file
+2. Computing from this the fraction of samples to keep given the desired number of output samples
+3. Doing a second pass through the file where, for each sequence:
+    a. If adding the sequence to the output file makes the ratio of sequences included closer to the goal ratio we include it
+    b. If not, we leave it out
+
+This gives us an evenly distributed selection of samples from the larger collection.
 
 ## Usage
 
 To use, just download the prebuilt executable jar to somewhere in your PATH (e.g. `~/bin`).
 
-    curl ...
+    curl https://raw.githubusercontent.com/metasoarous/posterior-subset/master/posterior-subset > ~/bin/posterior-subset
+    chmod +x ~/bin/posterior-subset
 
 To execute it, run `posterior-subset <command line args>`.
 Full command line usage comes with the `-h` flag:

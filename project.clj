@@ -1,5 +1,5 @@
 (defproject posterior-subset "0.1.0-SNAPSHOT"
-  :description "A simple Clojure/JVM CLI for subsetting BEAST posterior files (logfiles and treefiles)"
+  :description "A simple Clojure/JVM CLI for subsetting large BEAST posterior files (logfiles and treefiles)"
   :url "https://github.com/metasoarous/posterior-subset"
   :main posterior-subset.core
   :aot [posterior-subset.core]
