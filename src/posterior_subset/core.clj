@@ -2,7 +2,8 @@
 (ns posterior-subset.core
   (:require [clojure.tools.cli :refer [parse-opts]]
             [clojure.string :as string]
-            [clojure.java.io :as io]))
+            [clojure.java.io :as io])
+  (:gen-class))
 
 
 (def tree-line-regexp #"(?i)tree STATE_.*")
@@ -72,10 +73,10 @@
    ["-h" "--help"]])
 
 (defn usage [options-summary]
-  (->> ["Rarefy a posterior file, as output by beast. Options --out-count and --out-fraction"
-        "respectively rarefy to a total count of lines in the output, or a fraction of lines"
-        "present in the output:"
+  (->> ["Rarefy a posterior treefile or logfile, as output by BEAST. Arguments and options are:"
         ""
+        "  [infile]"
+        "  [outfile]"
         options-summary]
     (string/join \newline)))
 
