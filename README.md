@@ -45,16 +45,16 @@ Full command line usage comes with the `-h` flag:
 ## Development
 
 Should you need to make modifications to this project, it's recommended you use Leiningen.
-You can download leinengein [here](XXX).
+You can download leinengein [here](https://github.com/technomancy/leiningen).
 Simply put that script somewhere in your path (`~/bin`, for example), and then run `lein` to have it download its dependencies.
 
-    curl ... > ~/bin/lein
+    curl https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein > ~/bin/lein
     chmod +x ~/bin/lein
     lein
 
 Now clone this repository, run lein deps, and start developing.
 
-    git clone ...
+    git clone https://github.com/metasoarous/posterior-subset
     cd posterior-subset
     lein deps
     vim src/posterior_subset/core.clj
