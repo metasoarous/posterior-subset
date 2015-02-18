@@ -8,7 +8,7 @@
 
 ;; The regular expressions we use for deciding what kind of line we're working with
 (def tree-line-regexp #"(?i)tree STATE_.*")
-(def log-line-regexp #"(?i)^(sample|[^#]).*")
+(def log-line-regexp #"^\d.*") ; Basically count any line starting with a digit as a data line
 (def file-type-regexp-map
   {:treefile tree-line-regexp
    :logfile  log-line-regexp})
